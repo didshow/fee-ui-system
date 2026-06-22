@@ -1,0 +1,61 @@
+.root {
+  background: var(--color-bg-page);
+  min-height: 100%;
+  padding-bottom: var(--space-6);
+}
+
+/* ── Header ── */
+.header {
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  background: linear-gradient(135deg, #1677ff 0%, #40a9ff 100%);
+}
+
+.title {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  color: #fff;
+}
+
+.sub {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: var(--space-1);
+}
+
+/* ── 月份分组标签 ── */
+.monthLabel {
+  padding: var(--space-3) var(--space-4) var(--space-2);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* ── 记录 icon ── */
+.iconWrap {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ── 右侧金额 + 状态 ── */
+.extra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.amount {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ── 空状态 ── */
+.empty {
+  padding-top: var(--space-12);
+}

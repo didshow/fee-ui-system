@@ -1,0 +1,20 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--color-bg-page);
+}
+
+.tabbar {
+  flex-shrink: 0;
+  border-top: 1px solid var(--color-border-light);
+  padding-bottom: var(--safe-bottom);
+  background-color: var(--color-bg-card);
+}

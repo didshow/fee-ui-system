@@ -1,0 +1,111 @@
+.root {
+  background: var(--color-bg-page);
+  min-height: 100%;
+  padding-bottom: var(--space-6);
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, #1677ff 0%, #40a9ff 100%);
+}
+
+.greeting {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: #fff;
+}
+
+.subGreeting {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: var(--space-1);
+}
+
+/* ── 通用区块间距 ── */
+.section {
+  padding: 0 var(--space-4);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+/* ── 快捷入口 ── */
+.quickItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  cursor: pointer;
+}
+
+.quickIconWrap {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quickIcon {
+  font-size: 1.375rem;
+}
+
+.quickLabel {
+  font-size: var(--font-xs);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* ── 最近缴费列表标题栏 ── */
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.sectionTitle {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.viewAll {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: var(--font-sm);
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+}
+
+/* ── 记录 icon ── */
+.recordIconWrap {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+/* ── 记录金额 ── */
+.recordAmount {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ── 空状态 ── */
+.empty {
+  text-align: center;
+  padding: var(--space-8);
+  color: var(--color-text-tertiary);
+}
