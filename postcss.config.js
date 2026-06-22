@@ -7,7 +7,7 @@ export default {
       propList: ['*'],          // 转换所有 CSS 属性
       unitPrecision: 4,         // 保留 4 位小数
       minPixelValue: 2,         // 小于 2px 的不转（避免边框变成 0.xx rem）
-      exclude: /node_modules/,
+      exclude: 'node_modules',
     },
     // 命名断点支持：@media (--desktop) { } 语法
     'postcss-custom-media': {},
