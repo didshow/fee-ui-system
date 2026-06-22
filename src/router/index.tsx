@@ -34,4 +34,4 @@ export const router = createBrowserRouter([
   // /login 和未知路由都跳首页
   { path: '/login', element: <Navigate to="/" replace /> },
   { path: '*',      element: <Navigate to="/" replace /> },
-])
+], { basename: import.meta.env.BASE_URL })

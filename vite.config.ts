@@ -12,8 +12,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
 
-  // GitHub Pages 部署到 /fee-system/，本地开发为 /
-  base: mode === 'h5' ? '/h5/' : (process.env.GITHUB_ACTIONS ? '/fee-system/' : '/'),
+  // GitHub Pages 部署到 /fee-ui-system/，本地开发为 /
+  base: mode === 'h5' ? '/h5/' : (process.env.GITHUB_ACTIONS ? '/fee-ui-system/' : '/'),
 
   build: {
     // H5 产物输出到 dist-h5/，Web 产物输出到 dist/
