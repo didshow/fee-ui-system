@@ -21,11 +21,9 @@ export default defineConfig(({ mode }) => ({
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          // react 相关单独打包，利用浏览器缓存
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          // antd-mobile 体积较大，单独拆出
-          antd: ['antd-mobile'],
+        manualChunks(id) {
+          if (id.includes('antd-mobile')) return 'antd'
+          if (id.includes('react-dom') || id.includes('react-router') || id.includes('/react/')) return 'vendor'
         },
       },
     },

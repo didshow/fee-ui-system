@@ -49,9 +49,11 @@ export default function Profile() {
     <div className={styles.root}>
       {/* 用户信息头部 */}
       <div className={styles.header}>
-        <Avatar src="" className={styles.avatar}>
-          {userId ? userId.slice(-2) : '用户'}
-        </Avatar>
+        <Avatar
+          src=""
+          className={styles.avatar}
+          fallback={<span>{userId ? userId.slice(-2) : '用'}</span>}
+        />
         <div className={styles.userInfo}>
           <p className={styles.userName}>用户 {userId ?? '未登录'}</p>
           <p className={styles.userTag}>普通用户</p>
