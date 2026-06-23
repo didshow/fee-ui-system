@@ -1,14 +1,8 @@
-import { List, Tag, Empty } from 'antd-mobile'
+import { Empty } from 'antd-mobile'
+import { SearchOutline, FilterOutline, DownOutline, AppOutline, RightOutline, ClockCircleOutline } from 'antd-mobile-icons'
 import { mockRecords, mockBills, categoryIcon } from '@/utils/mock'
-import { formatAmountWithSymbol } from '@/utils/format'
+import { formatAmount } from '@/utils/format'
 import styles from './RecordList.module.css'
-
-const methodLabel: Record<string, string> = {
-  alipay:    '支付宝',
-  wechat:    '微信支付',
-  bank_card: '银行卡',
-  balance:   '余额',
-}
 
 const categoryStyle: Record<string, { bg: string; color: string }> = {
   phone:       { bg: '#f6ffed', color: '#52c41a' },
@@ -25,74 +19,74 @@ const records = mockRecords.map((r) => {
   return { ...r, bill, month: r.paidAt.slice(0, 7) }
 })
 
-const grouped = records.reduce<Record<string, typeof records>>((acc, r) => {
-  if (!acc[r.month]) acc[r.month] = []
-  acc[r.month].push(r)
-  return acc
-}, {})
-
-const sortedMonths = Object.keys(grouped).sort((a, b) => b.localeCompare(a))
-
-function monthLabel(ym: string) {
-  const [year, month] = ym.split('-')
-  return `${year}年${month}月`
-}
 
 export default function RecordList() {
   return (
     <div className={styles.root}>
+      {/* 蓝色头部 */}
       <header className={styles.header}>
-        <p className={styles.title}>缴费记录</p>
-        <p className={styles.sub}>共 {records.length} 笔</p>
+        <div className={styles.headerTop}>
+          <p className={styles.title}>我的订单</p>
+        </div>
+        <div className={styles.searchBar}>
+          <SearchOutline className={styles.searchIcon} />
+          <span className={styles.searchPlaceholder}>搜索订单 / 账号 / 业务名称</span>
+        </div>
       </header>
 
-      {records.length === 0 ? (
-        <Empty description="暂无缴费记录" className={styles.empty} />
-      ) : (
-        sortedMonths.map((month) => (
-          <div key={month}>
-            <div className={styles.monthLabel}>{monthLabel(month)}</div>
-            <List>
-              {grouped[month].map((record) => {
-                const cat = record.bill?.category
-                const style = cat ? categoryStyle[cat] : { bg: '#f5f5f5', color: '#999' }
-                const icon = cat ? categoryIcon[cat] : '💳'
-                const title = record.bill?.title ?? '缴费'
-                const date = new Date(record.paidAt).toLocaleDateString('zh-CN', {
-                  month: 'long', day: 'numeric',
-                })
+      {/* 筛选栏 */}
+      <div className={styles.filterBar}>
+        <button className={styles.filterChip}><FilterOutline /> 状态 <DownOutline /></button>
+        <button className={styles.filterChip}><AppOutline /> 分类 <DownOutline /></button>
+        <button className={styles.filterChip}><ClockCircleOutline /> 时间↓ <DownOutline /></button>
+        <span className={styles.filterCount}>共 {records.length} 笔</span>
+      </div>
 
-                return (
-                  <List.Item
-                    key={record.id}
-                    prefix={
-                      <div className={styles.iconWrap} style={{ background: style.bg }}>
-                        <span style={{ color: style.color }}>{icon}</span>
-                      </div>
-                    }
-                    description={`${date} · ${methodLabel[record.method] ?? record.method}`}
-                    extra={
-                      <div className={styles.extra}>
-                        <span className={styles.amount}>
-                          -{formatAmountWithSymbol(record.amount)}
-                        </span>
-                        <Tag
-                          color={record.status === 'success' ? 'success' : 'danger'}
-                          fill="outline"
-                          style={{ marginTop: 4 }}
-                        >
-                          {record.status === 'success' ? '成功' : '失败'}
-                        </Tag>
-                      </div>
-                    }
-                  >
-                    {title}
-                  </List.Item>
-                )
-              })}
-            </List>
-          </div>
-        ))
+      {/* 操作按钮 */}
+      <div className={styles.actionBar}>
+        <button className={styles.actionBtnOnline}>全部上线</button>
+        <button className={styles.actionBtnOffline}>全部下线</button>
+      </div>
+
+      {/* 订单列表 */}
+      {records.length === 0 ? (
+        <Empty description="暂无订单" className={styles.empty} />
+      ) : (
+        records.map((record) => {
+          const cat = record.bill?.category
+          const style = cat ? categoryStyle[cat] : { bg: '#f5f5f5', color: '#999' }
+          const icon = cat ? categoryIcon[cat] : '💳'
+          const title = record.bill?.title ?? '话费充值'
+          return (
+            <div key={record.id} className={styles.orderCard}>
+              <div className={styles.orderCardHeader}>
+                <div className={styles.orderOperator}>
+                  <div className={styles.orderIcon} style={{ background: style.bg, color: style.color }}>{icon}</div>
+                  <span className={styles.orderTitle}>{title}</span>
+                </div>
+                <span className={styles.statusBadge}>待处理</span>
+              </div>
+              <div className={styles.orderFields}>
+                <div className={styles.orderField}>
+                  <span className={styles.orderFieldLabel}>账号</span>
+                  <span className={styles.orderFieldValue}>{record.billIds[0] ?? '--'}</span>
+                </div>
+                <div className={styles.orderField}>
+                  <span className={styles.orderFieldLabel}>订单号</span>
+                  <span className={styles.orderFieldValue}>{record.id}</span>
+                </div>
+                <div className={styles.orderField}>
+                  <span className={styles.orderFieldLabel}>充值金额</span>
+                  <span className={styles.orderAmountValue}>¥{formatAmount(record.amount)}</span>
+                </div>
+              </div>
+              <div className={styles.orderFooter}>
+                <span className={styles.orderTime}>{new Date(record.paidAt).toLocaleString('zh-CN')}</span>
+                <RightOutline className={styles.orderArrow} />
+              </div>
+            </div>
+          )
+        })
       )}
     </div>
   )

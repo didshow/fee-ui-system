@@ -69,3 +69,290 @@
   border-radius: var(--radius-full) !important;
   font-weight: 600 !important;
 }
+
+/* ── 须知按钮 ── */
+.noticeBtn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* ── 运营商卡片 ── */
+.operatorCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+.operatorIconBox {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.operatorName {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ── 内容卡片 ── */
+.card {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── 区块标题（左蓝竖线） ── */
+.sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.sectionLabel::before {
+  content: '';
+  width: 4px;
+  height: 1rem;
+  background: var(--color-primary);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── 快捷金额（3列） ── */
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+/* ── 自定义金额输入 ── */
+.customInput {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-input);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-light);
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.yuan {
+  font-size: var(--font-lg);
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+/* ── 充值信息表单字段 ── */
+.formField {
+  margin-bottom: var(--space-3);
+}
+
+.formField:last-child {
+  margin-bottom: 0;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.required {
+  color: var(--color-danger);
+  margin-left: 2px;
+}
+
+.fieldInputWrap {
+  background: var(--color-bg-input);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border-light);
+}
+
+/* ── 底部固定结算栏 ── */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-card);
+  border-top: 1px solid var(--color-border-light);
+  padding: var(--space-3) var(--space-4);
+  padding-bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--z-sticky);
+}
+
+.footerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.footerLabel {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+}
+
+.footerAmount {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.footerBtn {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-3) var(--space-8);
+  font-size: var(--font-base);
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 120px;
+}
+
+.footerBtn:active {
+  background: var(--color-primary-dark);
+}
+
+/* ── 须知弹窗 ── */
+.noticeWrap {
+  padding: var(--space-4) var(--space-4) var(--space-6);
+}
+
+.noticeHeading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.noticeTitleBar {
+  width: 4px;
+  height: 1.25rem;
+  background: var(--color-primary);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.noticeSection {
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.noticeSection:last-of-type {
+  border-bottom: none;
+}
+
+.noticeSectionTitle {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.noticeHighlight {
+  background: #fffbe6;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.noticeHighlightTitle {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: #875800;
+  margin-bottom: var(--space-2);
+}
+
+.noticeHighlightBody {
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.noticeList {
+  padding-left: var(--space-4);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-3);
+}
+
+.noticeSubCard {
+  background: var(--color-bg-input);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.noticeTip {
+  border: 1px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-sm);
+  color: var(--color-primary);
+  text-align: center;
+  margin: var(--space-4) 0;
+}
+
+.noticeFooter {
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.noticeBtnClose {
+  flex: 1;
+  padding: var(--space-3);
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-base);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.noticeBtnConfirm {
+  flex: 2;
+  padding: var(--space-3);
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}

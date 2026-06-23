@@ -59,3 +59,193 @@
 .empty {
   padding-top: var(--space-12);
 }
+
+/* ── 头部 ── */
+.headerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+/* ── 搜索栏 ── */
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+}
+
+.searchIcon {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.searchPlaceholder {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── 筛选栏 ── */
+.filterBar {
+  display: flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  gap: var(--space-2);
+  background: var(--color-bg-card);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.filterChip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  font-size: var(--font-sm);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0 var(--space-2);
+}
+
+.filterCount {
+  margin-left: auto;
+  font-size: var(--font-sm);
+  color: var(--color-text-tertiary);
+}
+
+/* ── 操作按钮 ── */
+.actionBar {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.actionBtnOnline {
+  flex: 1;
+  padding: var(--space-2) 0;
+  background: #00b42a;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.actionBtnOffline {
+  flex: 1;
+  padding: var(--space-2) 0;
+  background: #fa8c16;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ── 订单卡片 ── */
+.orderCard {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-xl);
+  margin: 0 var(--space-4) var(--space-3);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.orderCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.orderOperator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.orderIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.orderTitle {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.statusBadge {
+  background: #fff3e0;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+  border-radius: var(--radius-full);
+  font-size: var(--font-xs);
+  padding: 2px 10px;
+}
+
+.orderFields {
+  padding: var(--space-2) var(--space-4);
+}
+
+.orderField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: var(--font-sm);
+}
+
+.orderField:last-child {
+  border-bottom: none;
+}
+
+.orderFieldLabel {
+  color: var(--color-text-tertiary);
+  min-width: 60px;
+}
+
+.orderFieldValue {
+  color: var(--color-text-primary);
+  font-size: var(--font-sm);
+}
+
+.orderAmountValue {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: var(--font-base);
+}
+
+.orderFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.orderTime {
+  font-size: var(--font-xs);
+  color: var(--color-text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.orderArrow {
+  color: var(--color-text-tertiary);
+  font-size: 1rem;
+}
