@@ -46,48 +46,48 @@
   /* --------------------------------------------------
      主题色
      -------------------------------------------------- */
-  --color-primary:       #1677ff;
-  --color-primary-light: #e8f4ff;
-  --color-primary-dark:  #0958d9;
+  --color-primary:       #165dff;
+  --color-primary-light: #e8f3ff;
+  --color-primary-dark:  #0e42d2;
 
-  --color-success:       #52c41a;
-  --color-success-light: #f6ffed;
+  --color-success:       #00b42a;
+  --color-success-light: #e8ffea;
 
-  --color-warning:       #faad14;
-  --color-warning-light: #fffbe6;
+  --color-warning:       #ff7d00;
+  --color-warning-light: #fff7e8;
 
-  --color-danger:        #ff4d4f;
-  --color-danger-light:  #fff1f0;
+  --color-danger:        #f53f3f;
+  --color-danger-light:  #ffece8;
 
   /* --------------------------------------------------
      中性色（文字 / 背景 / 边框）
      -------------------------------------------------- */
-  --color-text-primary:   #1a1a1a;
-  --color-text-secondary: #666666;
-  --color-text-tertiary:  #999999;
+  --color-text-primary:   #1d2129;
+  --color-text-secondary: #4e5969;
+  --color-text-tertiary:  #86909c;
   --color-text-inverse:   #ffffff;
 
-  --color-bg-page:  #f5f5f5;
+  --color-bg-page:  #f2f3f5;
   --color-bg-card:  #ffffff;
-  --color-bg-input: #f7f7f7;
+  --color-bg-input: #f7f8fa;
 
-  --color-border:       #e8e8e8;
-  --color-border-light: #f0f0f0;
+  --color-border:       #e5e6eb;
+  --color-border-light: #f0f1f3;
 
   /* --------------------------------------------------
      缴费系统语义色
      -------------------------------------------------- */
-  --color-unpaid:  #ff4d4f;   /* 待缴（红） */
-  --color-paid:    #52c41a;   /* 已缴（绿） */
-  --color-overdue: #fa8c16;   /* 逾期（橙） */
-  --color-partial: #faad14;   /* 部分缴纳（黄） */
+  --color-unpaid:  #f53f3f;   /* 待缴（红） */
+  --color-paid:    #00b42a;   /* 已缴（绿） */
+  --color-overdue: #ff7d00;   /* 逾期（橙） */
+  --color-partial: #ff9a2e;   /* 部分缴纳（黄橙） */
 
   /* --------------------------------------------------
      阴影
      -------------------------------------------------- */
-  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.10);
-  --shadow-lg: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
 
   /* --------------------------------------------------
      层级（z-index）

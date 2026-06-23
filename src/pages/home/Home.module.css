@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-4) var(--space-4) var(--space-6);
-  background: linear-gradient(135deg, #1677ff 0%, #40a9ff 100%);
+  background: linear-gradient(135deg, #165dff 0%, #4080ff 100%);
 }
 
 .greeting {
@@ -45,7 +45,7 @@
 .quickIconWrap {
   width: 2.75rem;
   height: 2.75rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,7 @@
 .recordIconWrap {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;

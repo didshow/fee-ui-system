@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import { Card, Grid, List } from 'antd-mobile'
 import { BellOutline, RightOutline } from 'antd-mobile-icons'
 import { useAuthStore } from '@/store/auth'
-import { mockBills, mockRecords, categoryIcon } from '@/utils/mock'
+import { useCoinsStore } from '@/store/coins'
+import { mockRecords, mockBills, categoryIcon } from '@/utils/mock'
 import { formatAmountWithSymbol } from '@/utils/format'
 import styles from './Home.module.css'
 
@@ -48,7 +49,8 @@ const recentRecords = mockRecords.slice(0, 5).map((r) => {
 
 export default function Home() {
   const navigate = useNavigate()
-  const userId = useAuthStore((s) => s.userId)
+  const userId  = useAuthStore((s) => s.userId)
+  const balance = useCoinsStore((s) => s.balance)
 
   return (
     <div className={styles.root}>
@@ -60,6 +62,41 @@ export default function Home() {
         </div>
         <BellOutline fontSize={22} color="#fff" />
       </header>
+
+      {/* ── 金币余额横幅 ── */}
+      <div
+        onClick={() => navigate('/recharge')}
+        style={{
+          margin: '0 12px 12px',
+          borderRadius: 14,
+          padding: '12px 16px',
+          background: 'linear-gradient(90deg, #b8860b, #daa520, #ffd700)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          cursor: 'pointer',
+          boxShadow: '0 4px 16px rgba(212,160,23,0.35)',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: 22 }}>🪙</span>
+          <div>
+            <div style={{ fontSize: 11, color: 'rgba(0,0,0,0.5)', lineHeight: 1 }}>我的金币</div>
+            <div style={{ fontSize: 20, fontWeight: 800, color: '#1a0a00', lineHeight: 1.4 }}>{balance.toLocaleString()}</div>
+          </div>
+        </div>
+        <div style={{
+          background: '#1a0a00',
+          color: '#ffd700',
+          fontSize: 13,
+          fontWeight: 700,
+          padding: '6px 16px',
+          borderRadius: 20,
+        }}>
+          去充值 →
+        </div>
+      </div>
+
 
       {/* ── 缴费类型 ── */}
       <div className={styles.section}>

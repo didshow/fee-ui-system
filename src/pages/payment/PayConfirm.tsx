@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Card, List, Button, Radio, Space, Divider } from 'antd-mobile'
+import { Card, List, Button, Radio, Space, Divider, Toast } from 'antd-mobile'
 import PageLayout from '@/components/layout/PageLayout'
 import { categoryIcon } from '@/utils/mock'
 import { formatAmountWithSymbol } from '@/utils/format'
+import { useCoinsStore } from '@/store/coins'
 import styles from './PayConfirm.module.css'
 
 interface PayState {
@@ -13,7 +14,7 @@ interface PayState {
   title: string
 }
 
-const payMethods = [
+const STATIC_METHODS = [
   { value: 'alipay',    label: '支付宝',   icon: '🔵' },
   { value: 'wechat',    label: '微信支付', icon: '🟢' },
   { value: 'bank_card', label: '银行卡',   icon: '🏦' },
@@ -23,6 +24,7 @@ export default function PayConfirm() {
   const navigate = useNavigate()
   const { state } = useLocation() as { state: PayState }
   const [method, setMethod] = useState('alipay')
+  const { balance, spend } = useCoinsStore()
 
   if (!state) {
     navigate('/', { replace: true })
@@ -32,12 +34,21 @@ export default function PayConfirm() {
   const { category, account, amount, title } = state
 
   function handleConfirm() {
+    const coinsNeeded = Math.ceil(amount / 100)
+    if (method === 'balance') {
+      const ok = spend(coinsNeeded)
+      if (!ok) {
+        Toast.show({ icon: 'fail', content: `金币不足，当前余额 ${balance} 枚，需要 ${coinsNeeded} 枚`, duration: 2500 })
+        return
+      }
+    }
     navigate('/pay/result', {
       state: {
         ...state,
         method,
         tradeNo: `T${Date.now()}`,
         paidAt: new Date().toISOString(),
+        coinsSpent: method === 'balance' ? coinsNeeded : 0,
       },
     })
   }
@@ -75,13 +86,21 @@ export default function PayConfirm() {
         <Card title="选择支付方式" className={styles.card}>
           <Radio.Group value={method} onChange={(v) => setMethod(v as string)}>
             <Space direction="vertical" block>
-              {payMethods.map((m) => (
+              {STATIC_METHODS.map((m) => (
                 <Radio key={m.value} value={m.value} block>
                   <span className={styles.methodLabel}>
                     {m.icon}&nbsp;&nbsp;{m.label}
                   </span>
                 </Radio>
               ))}
+              <Radio value="balance" block>
+                <span className={styles.methodLabel}>
+                  🪙&nbsp;&nbsp;金币支付
+                  <span style={{ fontSize: 12, color: 'var(--color-text-tertiary)', marginLeft: 8 }}>
+                    余额 {balance.toLocaleString()} 枚
+                  </span>
+                </span>
+              </Radio>
             </Space>
           </Radio.Group>
         </Card>
